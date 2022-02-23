@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sudoku
@@ -47,8 +41,10 @@ namespace Sudoku
             s = new SudokuR(known_points); 
 
             SuspendLayout();
+            
+            ClientSize = new Size(675, 800);
+
             for (int i = 0; i < 9; i++)
-            {
                 for (int j = 0; j < 9; j++)
                 {
                     tiles[i, j] = new Button();
@@ -57,22 +53,17 @@ namespace Sudoku
                     tiles[i, j].Location = new Point(i * 75, j * 75);
                     tiles[i, j].Size = new Size(75, 75);
                     if (s.matrix[i, j].StatesCount == 1)
-                    {
                         tiles[i, j].Text = s.matrix[i, j].FirstState.ToString();
-                    }
                     else
-                    {
                         tiles[i, j].Text = "";
-                    }
                 }
-            }
+
             Controls.Add(solve);
             solve.Location = new Point(760, 300);
             solve.Text = "Solve";
             solve.Click += new EventHandler(SolveBotton);
 
-
-            
+            ResumeLayout(false);
         }
     }
 }

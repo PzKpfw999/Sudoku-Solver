@@ -163,6 +163,7 @@ namespace Sudoku
             return true;
         }
     }
+    /*
     class Sudoku
     {
         public Cell[,] matrix = new Cell[9, 9];
@@ -332,4 +333,5 @@ namespace Sudoku
             }
         }
     }
+    */
 }
